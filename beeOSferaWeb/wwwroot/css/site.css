@@ -1,0 +1,312 @@
+html {
+    font-size: 14px;
+}
+
+/*Background Slideshow*/
+
+body {
+    background-image: url(../images/background/slide_002_login_screen_apiary.png), url(../images/background/slide_003_login_screen_apiary.png), url(../images/background/slide_004_login_screen_apiary.png), url(../images/background/slide_005_login_screen_apiary.png), url(../images/background/slide_008_login_screen_apiary.png), url(../images/background/slide_011_login_screen_apiary.png), url(../images/background/slide_014_login_screen_apiary.png), url(../images/background/slide_015_login_screen_apiary.png);
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/*.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}*/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+#slide_bg {
+    width: 100%;
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    animation: slideBg 30s infinite 1s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes slideBg {
+    0% {
+        background-image: url(../images/background/slide_002_login_screen_apiary.png)
+    }
+
+    12.5% {
+        background-image: url(../images/background/slide_003_login_screen_apiary.png)
+    }
+
+    24.9% {
+        background-image: url(../images/background/slide_004_login_screen_apiary.png)
+    }
+
+    25% {
+        background-image: url(../images/background/slide_004_login_screen_apiary.png)
+    }
+
+    37.5% {
+        background-image: url(../images/background/slide_005_login_screen_apiary.png)
+    }
+
+    50% {
+        background-image: url(../images/background/slide_008_login_screen_apiary.png)
+    }
+
+    67.5% {
+        background-image: url(../images/background/slide_011_login_screen_apiary.png)
+    }
+
+    75% {
+        background-image: url(../images/background/slide_014_login_screen_apiary.png)
+    }
+
+    87% {
+        background-image: url(../images/background/slide_015_login_screen_apiary.png)
+    }
+
+    100% {
+        background-image: url(../images/background/slide_002_login_screen_apiary.png)
+    }
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+HTML
+CSS
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+.centeredimage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Formulario*/
+
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+    .login-form .form-control {
+        border-radius: 0;
+        border-color: #ffc107;
+    }
+
+    .login-form .form-group {
+        position: relative;
+    }
+
+        .login-form .form-group .forgot-password {
+            position: absolute;
+            top: 6px;
+            right: 15px;
+        }
+
+    .login-form .btn {
+        border-radius: 0;
+        margin-bottom: 30px;
+    }
+
+        .login-form .btn:focus {
+            border-color: #ffc107;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(255, 193, 7, 1);
+        }
+
+.form-control:focus {
+    border-color: #ffc107;
+    background-color: transparent;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 5px rgba(255, 193, 7, 1);
+}
+
+/*Boostrap custom*/
+
+:root {
+    --bs-body-font-family: 'Gilroy', sans-serif;
+}
+
+/*Colores*/
+
+.yellow-variant-2 {
+    background-color: #FAA61A;
+}
+
+.fc-white {
+    color: white;
+}
+
+/*Fonts*/
+
+.fs-7 {
+    font-size: .75rem;
+}
+
+/*Input*/
+
+.transparent-input {
+    background-color: transparent;
+}
+
+.input:focus {
+    outline: #FFCB05;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/*Imagen de fondo Login*/
+
+.backgroundImage {
+    background-image: url(../images/images/loginbeeOSfera.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+}
+
+.mt-n4 {
+    margin-top: -6rem !important;
+}
+
+/*Grid general - Propiedades*/
+
+/*.body {
+    background-color: lightgray;
+    text-align: center;
+    font-family: 'Gilroy-Regular', sans-serif;
+}*/
+
+.grid-layout {
+    height: auto;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 30% 70%;
+    background-color: antiquewhite;
+    border: 1px solid black;
+}
+
+.area {
+    border: 2px solid black;
+    background-color: white;
+    text-align: center;
+    min-height: 5rem;
+}
+
+.titulo-viviendas {
+    background-color: lightblue;
+}
+
+.titulo-datos {
+    background-color: lightgreen;
+}
+
+.lista {
+    background-color: beige;
+}
+
+.contenido {
+    background-color: white;
+}
+
+/*Media Query para el orden en dispositivos móviles*/
+
+@media only screen and (max-width: 550px) {
+    .grid-layout {
+        height: auto;
+        display: grid;
+        grid-template-rows: 10% 90% 10% 90%;
+        grid-template-columns: auto;
+        background-color: antiquewhite;
+        border: 1px solid black;
+    }
+
+    .lista {
+        grid-row: 2 / 3;
+        border-radius: 4px;
+    }
+}
+
+/*Grid dentro del contenido*/
+
+.auto-grid {
+    --auto-grid-min-size: 16rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 1rem;
+    padding: 0.25rem 0.25rem;
+}
+
+h3 {
+    color: #414042;
+    font-weight: lighter;
+}
+
+.auto-grid ul {
+    list-style: none;
+}
+
+.auto-grid li {
+    box-shadow: 6px 9px 9px rgba(0, 0, 0, 0.11);
+    border-radius: 4px;
+    background-color: #F5F5F5;
+}
+
+/*Grid de la lista de propiedades */
+
+.auto-lista {
+    --auto-lista-min-size: 16rem;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 1rem;
+    padding: 1rem 2rem;
+}
+
+ul li {
+    list-style: none;
+    border-radius: 4px;
+}
+
+.wrapper {
+    max-width: 65rem;
+    margin: auto auto;
+}
+
+li {
+    text-align: center;
+    font-size: 1.2rem;
+    background: gray;
+    color: #ffffff;
+}
+
+ul {
+    list-style: none;
+}

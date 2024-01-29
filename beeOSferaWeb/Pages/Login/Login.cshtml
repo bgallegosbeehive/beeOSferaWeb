@@ -1,0 +1,69 @@
+﻿@page
+
+@model beeOSferaWeb.Pages.Login.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/sweetalert2.css" rel="stylesheet" />
+    <script src="~/js/sweetalert2.js"></script>
+    <title>@ViewData["Title"] Iniciar Sesión</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/beeOSferaWeb.styles.css" asp-append-version="true" />
+    @*https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css*@
+</head>
+
+<body class="">
+    <section class="vh-100 " id="slide_bg">
+
+        @* Contenedor *@
+        <div class="container  h-100 backgroundImage">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+
+                    @* Card *@
+
+                    <div class="card bg-transparent border-0">
+                        <div class="card-body p-5 text-center">
+
+                            @* Formulario *@
+
+                            <form method="post" class="login-form mt-5">
+                                @*Se le retiró needs-validation*@
+                                <div class="mb-4">
+                                    <input name="usuario" placeholder="Nombre" type="text" pattern="[a-zA-Z0-9]+" title="Solo letras y números, no caracteres especiales" required="" autocomplete="off" id="form2Example11" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                                </div>
+                                <div class="mb-4 form-group">
+                                    <input name="password" placeholder="Clave" type="password" pattern="[a-zA-Z0-9]+" title="Solo letras y números, no caracteres especiales" required="" id="form2Example22" class="border-yellow-primary transparent-input form-control rounded text-white">
+                                    <a class="forgot-password text-warning fs-7 fw-light py-1 text-uppercase text-decoration-none" href="/Login/EnviarCorreo">Restablecer Clave</a>
+                                </div>
+
+                                <button aspp-page-handler="login" onClick="DatosIncorrectos()" class="btn yellow-variant-2 fc-white btn-block fa-lg mb-3 rounded w-50" type="submit">
+                                    Ingresar
+                                </button>
+
+                                @if (TempData["Mensaje"] != null)
+                                {
+                                    <div class="alert alert-dismissible fade show text-warning bg-opacity-0 text-center align-items-center align-content-center" role="alert">
+                                        <strong class="text-warning">*</strong> Datos Incorrectos.
+                                    </div>
+                                }
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-xs text-white text-opacity-50 position-relative mt-n4">© 2023 Derechos Reservados. <span class="text-white fw-bold">bee<span class="text-warning fw-bold">OS</span>fera</span> es un producto desarrollado por <span class="text-warning fw-bold">Beehive Systems.</span> </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿@page "/Login/RestablecerClave"
+@model beeOSferaWeb.Pages.Login.RestablecerClaveModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Restablecer Clave</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/beeOSferaWeb.styles.css" asp-append-version="true" />
+    @*https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css*@
+</head>
+
+<body class="">
+    <section class="vh-100 " id="slide_bg">
+
+        @* Contenedor *@
+        <div class="container  h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+
+                    @* Card *@
+
+                    <div class="card bg-transparent border-0">
+                        <div class="card-body p-5 text-center">
+
+                            @* Formulario *@
+
+                            <form method="post" name="f1" class="login-form mt-5 needs-validation">
+
+                                <div class="text-center fc-white pb-4">
+                                    <h1>
+                                        Restablecer Clave
+                                    </h1>
+                                </div>
+
+                                <div class="mb-4">
+                                    <input type="text" name="clave1" required="" id="form2Example11" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" placeholder="Nueva clave" />
+                                </div>
+
+                                <div class="mb-4 form-group">
+                                    <input type="text" name="clave2" required="" id="form2Example22" class="border-yellow-primary transparent-input form-control rounded text-white" placeholder="Confirmar clave">
+                                </div>
+
+                                <button class="btn yellow-variant-2 fc-white btn-block fa-lg mb-3 rounded w-50" type="submit" onclick="comprobarClave()">
+                                    Confirmar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function comprobarClave() {
+            clave1 = document.f1.clave1.value
+            clave2 = document.f1.clave2.value
+
+            if (clave1 == clave2) {
+
+            } else {
+                alert("Las claves no coinciden")
+            }
+        }
+    </script>
+</body>
+</html>

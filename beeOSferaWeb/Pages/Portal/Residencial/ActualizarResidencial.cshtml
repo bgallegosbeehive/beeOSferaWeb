@@ -1,0 +1,220 @@
+﻿@page "/Portal/ActualizarResidencial"
+
+@{
+    Layout = null;
+}
+@using System.Data;
+@model ActualizarResidencialModel
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/beeOSferaWeb.styles.css" asp-append-version="true" />
+    @*https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css*@
+    <title>@ViewData["Title"] Editar Propiedad </title>
+</head>
+<body class="">
+        @*Se le retiró needs-validation*@
+        @if (Model.Propiedadesid != null)
+            @foreach (DataRow fila in Model.Propiedadesid.Rows)
+            {
+                <section class="vh-100 " id="slide_bg">
+                    <div class="container-fluid h-100">
+
+                        <div class="row d-flex justify-content-center align-items-center text-white">
+                            <div class="col text-center">
+                                <p class="mt-3 display-3 text-white">
+                                    Editar Propiedad
+                                </p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#FFC300" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <form method="post" class="container-fluid m-0 p-0">
+                            @*<Select, donde los datos se traen desde la tabla Tipos de viviendas/>*@
+
+
+                            <div class="row container-fluid">
+                                <p class="text-start mb-3 text-white display-6">Tipo</p>
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3 dropdown">
+                                    <p class="text-white">Tipo de propiedad</p>
+                                    <select class="form-select" btn btn-secondary dropdown-toggle type="number" name="IdTipoVivienda" id="IdTipoVivienda" required>     
+                                        <option value="@fila["IdTipoVivienda"]" selected hidden>Cambiar condominio</option>
+                                        @foreach (DataRow row in Model.Tipos_viviendas.Rows)
+                                        {
+                  
+                                            <option value="@row["idTipoVivienda"]">@row["nombre"]</option>
+                                   
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                    <input type="text" name="idVivienda" id="idVivienda" hidden value="@fila["idVivienda"]" required="" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <div class="row container-fluid">
+                                <p class="text-start mb-3 text-white display-6">Ubicación</p>
+
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                    <p class="text-white">Calle</p>
+                                    <input type="text" name="calle" id="calle" value="@fila["calle"]" required="" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                                </div>
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3 dropdown">
+                                    <p class="text-white">Condominio</p>
+                                    <select class="form-select" btn btn-secondary dropdown-toggle type="number" name="IdCondominio" id="IdCondominio" required>
+                                    <option value="@fila["IdCondominio"]" selected hidden>Elije un condominio</option>
+                                        @foreach (DataRow row in Model.Obtener_tipos_condominios.Rows)
+                                        {
+                                            <option value="@row["idCondominio"]">@row["nombre"]</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                    <p class="text-white">Número Exterior</p>
+                                    <input type="number" name="numExt" id="numExt" value="@fila["numExt"]" required="" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                        </div>
+
+                        <div class="col-12 col-md-4 col-xl-3 mb-3">
+                            <p class="text-white">Número Interior</p>
+                            <input type="text" name="numInt" id="numInt" value="@fila["numInt"]" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                        </div>
+
+                        <div class="col-12 col-md-4 col-xl-3 mb-3">
+                            <p class="text-white">Superficie (M2)</p>
+                            <input type="number" name="superficie" id="superficie" value="@fila["superficie"]" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                        </div>
+
+                        <div class="col-12 col-md-4 col-xl-3 mb-3">
+                            @*<select/>*@
+                            <p class="text-white">Zona</p>
+                            <select class="form-select" btn btn-secondary dropdown-toggle type="number" name="IdZona" id="IdZona">
+                                <option class="dropdown-item" value="@fila["IdZona"]" selected hidden>Editar zona</option>
+                                @foreach (DataRow row in Model.Obtener_tipos_zonas.Rows)
+                                {
+                                <option value="@row["idZona"]">@row["nombre"]</option>
+                                }
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row container-fluid">
+
+                        <p class="text-start mb-3 text-white display-6">Identidad</p>
+
+                        <div class="col-12 col-md-4 col-xl-3 mb-3">
+                            <p class="text-white">Identificador</p>
+                            <input type="text" name="identificador" id="identificador" value="@fila["identificador"]" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                                </div>
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                    <p class="text-white">Descripción</p>
+                                    <input type="text" name="descripcion" id="descripcion" value="@fila["descripcion"]" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                                </div>
+                            </div>
+
+                            <div class="row container-fluid">
+                                <span class="text-start mb-3 text-white">Datos financieros</span>
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                    <p class="text-white">Referencia de pago</p>
+                                    <input type="text" name="referenciaPago" id="referenciaPago" value="@fila["referenciaPago"]" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                                </div>
+
+                            </div>
+
+                            <div class="row container-fluid">
+                                <p class="text-start mb-3 text-white display-6">Configuración para visitantes</p>
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                    @*<select/>*@
+                                    <p class="text-white">Aceptar visitas</p>
+                                    <select class="form-select" btn btn-secondary dropdown-toggle type="text" name="aceptarVisitas" id="aceptarVisitas"  class="border-yellow-primary rounded text-black">
+                                        <option value="@fila["aceptarVisitas"]" selected hidden></option>
+                                        <option value="S">Sí</option>
+                                        <option value="N">No</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                    @*<select/>*@
+                                    <p class="text-white">Solicitar autorización para visitantes</p>
+                                    <select class="form-select" btn btn-secondary dropdown-toggle type="text" name="solicitarAutorizacionIngresoVisitantes" id="solicitarAutorizacionIngresoVisitantes"  class="border-yellow-primary rounded text-black">
+                                        <option value="@fila["solicitarAutorizacionIngresoVisitantes"]"selected hidden></option>
+                                        <option value="S">Sí</option>
+                                        <option value="N">No</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row container-fluid display-hidden">
+                                <span class="text-start mb-3 text-white">Registrada por</span>
+                                <div class="row container-fluid">
+
+                                    <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                        @*<select/>*@
+
+                                        <select class="form-select" btn btn-secondary dropdown-toggle type="number" name="registradaPor" id="registradaPor" class="border-yellow-primary rounded text-black">
+                                            <option value="@fila["registradaPor"]" selected hidden>Elije un usuario</option>
+                                            <option value="1">Carlos Ochoa</option>
+                                            <option value="2">Marco Padilla</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row container-fluid display-hidden">
+                                <div class="row container-fluid">
+
+                                    <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                        <button class="btn yellow-variant-2 fc-white btn-block fa-lg mb-3 rounded w-50" type="submit">
+                                            Agregar
+                                        </button>
+                                    </div>
+                                    <div class="col-12 col-md-4 col-xl-3 mb-3">
+                                        <a class="forgot-password text-warning fs-7 fw-light py-1 text-uppercase fw-bold text-decoration-none" href="/Portal/Propiedades">Atras</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                </section>
+
+            }
+
+        else
+        {
+
+        }
+
+</body>
+
+</html>
+
+
+

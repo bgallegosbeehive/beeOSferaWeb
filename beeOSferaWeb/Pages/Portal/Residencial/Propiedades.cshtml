@@ -1,0 +1,171 @@
+﻿@page "/Portal/Propiedades"
+@{
+    Layout = "_Layout";
+}
+
+@using System.Data;
+@model ResidencialModel
+
+<title>@ViewData["Title"] Propiedades </title>
+
+<!-- Contenido específico de la vista -->
+
+<div class="grid-layout">
+    @if (Model.Propiedades != null)
+    {
+        <div class="area titulo-viviendas">
+            Viviendas
+        </div>
+        <div class="area titulo-datos">
+            Datos de viviendas
+        </div>
+        <div class="area lista">
+            <div class="wrapper">
+
+                <ul class="auto-lista">
+                    <li class="elementos-lista"><a href="/Portal/Residencial/AgregarResidencial">Agregar Propiedad</a></li>
+                    @foreach (DataRow row in Model.Propiedades.Rows)
+                    {
+                        <form asp-page-handler="Consultar" method="post">
+                            <input type="hidden" name="identificador" value="@row["IdVivienda"]" />
+                        <li class="elementos-lista">
+                            <button type="submit">
+                                @row["identificador"]
+                            </button>
+                        </li>
+                        </form>
+                    }
+                </ul>
+            </div>
+        </div>
+
+    }
+
+    @if (Model.Propiedadesid != null)
+    {
+        @foreach (DataRow fila in Model.Propiedadesid.Rows)
+        {
+            <div class="area datos">
+                <div class="wrapper">
+                    <ul class="auto-grid">
+                        <li>
+                            <div class="grid-cards">
+                                <div class="titulo">
+                                    <span class="material-symbols-rounded span-icon-titles">other_houses</span>Tipo
+                                </div>
+                                <div class="datos-fijos">
+                                    <p>Tipo:</p>
+                                </div>
+                                <div class="datos-dinamicos">
+                                    <span>@fila["IdTipoVivienda"]</span>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="grid-cards">
+                                <div class="titulo">
+                                    <span class="material-symbols-rounded span-icon-titles">home_pin</span>Ubicación
+                                </div>
+                                <div class="datos-fijos">
+                                    <p>Calle:</p>
+                                    <p>Condominio:</p>
+                                    <p>Num Ext:</p>
+                                    <p>Int:</p>
+                                    <p>Superficie:</p>
+                                    <p>Zona:</p>
+                                </div>
+                                <div class="datos-dinamicos">
+                                    <p>@fila["Calle"]</p>
+                                    <p>@fila["IdCondominio"]</p>
+                                    <p>@fila["numExt"]</p>
+                                    <p>@fila["numInt"]</p>
+                                    <p>@fila["superficie"]</p>
+                                    <p>@fila["IdZona"]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="grid-cards">
+                                <div class="titulo">
+                                    <span class="material-symbols-rounded span-icon-titles">boy</span>Identidad
+                                </div>
+                                <div class="datos-fijos">
+                                    <p>Identificador:</p>
+                                    <p>Descripción:</p>
+                                </div>
+                                <div class="datos-dinamicos">
+                                    <p>@fila["identificador"]</p>
+                                    <p>@fila["descripcion"]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="grid-cards">
+                                <div class="titulo">
+                                    <span class="material-symbols-rounded span-icon-titles">attach_money</span>Datos Financieros
+                                </div>
+                                <div class="datos-fijos">
+                                    <p>Referencia de pago:</p>
+                                    <p>Estado financiero:</p>
+                                    <p>Convenio:</p>
+                                </div>
+                                <div class="datos-dinamicos">
+                                    <p>@fila["referenciaPago"]</p>
+                                    <p>Vivienda cumplida</p>
+                                    <p>Si(switch)</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="grid-cards">
+                                <div class="titulo">
+                                    <span class="material-symbols-rounded span-icon-titles">nest_doorbell_visitor</span>Configuración para visitantes
+                                </div>
+                                <div class="datos-fijos">
+                                    <p>Aceptar visitas:</p>
+                                    <p>Solicitar autorización para ingreso:</p>
+                                </div>
+                                <div class="datos-dinamicos">
+                                    <p>@fila["aceptarVisitas"] Si(Switch)</p>
+                                    <p>@fila["solicitarAutorizacionIngresoVisitantes"] No(Switch)</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="grid-cards">
+                                <div class="titulo">
+                                    <span class="material-symbols-rounded span-icon-titles">phone_android</span>Configuración para beeOSfera Móvil
+                                </div>
+                                <div class="datos-fijos">
+                                    <p>Licencia APP:</p>
+                                </div>
+                                <div class="datos-dinamicos">
+                                    <p>Avanzada (switch)</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="li-buttons">
+                            <form method="post" class="login-form mt-5">
+                                <input type="hidden" name="idVivienda" value="@fila["idVivienda"]" />
+                                <button class="button-forms"  type="submit">Editar Propiedad</button>
+                            </form>
+
+                            <form asp-page-handler="Eliminar" method="post">
+                                <input type="hidden" name="eliminarid" value="@fila["idVivienda"]" />
+                                <button class="button-forms" type="submit">Eliminar</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        }
+
+    }
+</div>

@@ -1,0 +1,759 @@
+﻿:root {
+    --font-family-gilroy: 'Gilroy', sans-serif;
+    --sidebar: #414042;
+    --color-enlace-gray: #999999;
+    --background: white;
+    --text: #black;
+    --hover-gray: #6d6d6d;
+    --contrast-one: #F5F5F5;
+    --primary-yellow: #FFCB05;
+    --border-light: #cdcdcd;
+    /*Dark Theme Variables*/
+    --dark-background: #303030;
+    --blue-switch-dark: #343D5B;
+    --boxshadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    --boxshadow-card: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    --sidebar-dark: #171717;
+    --background-dark: #2B2B2B;
+    --contrast-one-dark: #5B5B5B;
+    --text-dark: white;
+    --boxshadow-dark: 0px 2px 4px 0px rgba(255, 255, 255, 1);
+}
+
+* {
+  transition: 0.5s ease all;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: var(--font-family-gilroy);
+}
+
+body {
+  color: var(--text);
+}
+
+body.dark {
+  background-color: var(--dark-background);
+}
+
+body.dark .top-navbar {
+  background-color: var(--sidebar);
+  box-shadow: var(--boxshadow);
+}
+
+body.dark .top-navbar #menu-icon, 
+body.dark .top-navbar .header-darkmode-switch, 
+body.dark .top-navbar .header-date {
+  color: var(--text-dark);
+}
+
+body.dark .card {
+  background-color: var(--sidebar);
+}
+
+body.dark .card .card-title {
+  color: var(--text-dark);
+  text-transform: uppercase;
+}
+
+body.dark .card .subtitulo {
+    color: var(--text-dark);
+}
+
+body.dark .card .links-divs {
+    background-color: var(--background-dark);
+    box-shadow: var(--boxshadow-dark5);
+}
+
+
+
+
+
+
+
+
+
+main {
+    padding: 2rem;
+}
+
+
+.main-renderBody {
+  height: 100vh;
+}
+
+/* Menú lateral de navegación */
+.side-navbar {
+    position: fixed;
+    display: flex;
+    height: 100vh;
+    width: 260px;
+    background: var(--sidebar);
+    overflow: hidden;
+    transition: 0.5s ease;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.side-navbar ul {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.side-navbar ul li {
+  width: 100%;
+}
+
+.side-navbar ul li span:hover, 
+.side-navbar ul li a .icon:hover {
+  color: var(--primary-yellow);
+}
+
+.side-navbar ul li a {
+  display: block;
+  width: 100%;
+  display: flex;
+  color: var(--background);
+}
+
+.side-navbar ul li a .icon {
+  min-width: 60px;
+  display: block;
+  font-size: 25px;
+  line-height: 60px;
+  height: 60px;
+  text-align: center;
+  color: var(--color-enlace-gray);
+}
+
+.side-navbar ul li a .text {
+  display: block;
+  padding: 0 10px;
+  line-height: 60px;
+  height: 60px;
+  white-space: nowrap;
+}
+
+
+/*Contenido*/
+
+.content {
+    position: absolute;
+    width: calc(100% - 260px);
+    left: 260px;
+    min-height: 100vh;
+    transition: 0.5s ease;
+}
+
+/*Menú de navegación */
+.top-navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 20px;
+    background-color: var(--contrast-one);
+    box-shadow: var(--boxshadow);
+    /*Grid Navbar*/
+    display: grid;
+    grid-template-columns: 10% 1fr 3fr 1fr;
+}
+
+#menu-icon {
+    font-size: 34px;
+    cursor: pointer;
+}
+
+.content.active {
+    width: calc(100% - 60px);
+    left: 60px;
+}
+
+.side-navbar.active {
+    width: 3.9rem;
+}
+
+
+.icon-list {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.list-top {
+    position: absolute;
+    top: 10%;
+    margin: 8px;
+}
+
+.list-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.top-img img {
+    display: none;
+}
+
+
+.span-icon-titles{
+    color: var(--primary-yellow);
+}
+
+
+/*TODO: Aparecer imagen en el top del sidemenu*/
+/*----------Estilos para el botón DarkMode Switch----------*/
+.header-darkmode-switch {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dark-mode-button {
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.header-date {
+    display: flex;
+    justify-content: flex-end;
+}
+
+    .header-date p {
+        padding: .3rem;
+    }
+
+/*----Contenido principal----*/
+.main {
+    width: 100%;
+    background-color: var(--background);
+}
+
+.card-title {
+    padding: 1.5rem 0px 0px 2rem;
+}
+
+.icon-list {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.list-top {
+    position: absolute;
+    top: 10%;
+    margin: 8px;
+}
+
+.list-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+
+/*TODO: ajustar autofill botones*/
+
+.link-buttons {
+    padding: 0px 2rem 2rem 2rem;
+    /*Grid*/
+    display: grid;
+    gap: 2rem;
+    grid-auto-rows: 6.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+}
+
+.links-divs {
+    background-color: var(--background);
+    box-shadow: var(--boxshadow);
+    border-radius: 8px;
+    text-align: center;
+    height: fit-content;
+}
+
+    .links-divs i {
+        color: var(--primary-yellow);
+        font-size: 72px;
+        margin-top: 1rem;
+    }
+
+    .subtitulo{
+        padding-bottom: 0.7rem;
+    }
+
+.auto-lista {
+    background-color: var(--contrast-one);
+}
+
+/*LAYOUT LISTA Y DATOS DE VIVIENDAS*/
+
+.grid-layout {
+    height: auto;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    grid-template-columns: 30% 70%;
+    margin-bottom: 2rem;
+}
+
+
+body.dark .grid-layout, body.dark .area {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+body.dark .area .lista{
+    background-color: var(--sidebar);
+}
+
+
+body.dark .auto-grid li, body.dark .grid-cards .titulo{
+    background-color: var(--sidebar);
+    color: white;
+}
+
+body.dark .auto-grid li, body.dark .grid-cards p {
+    background-color: var(--sidebar);
+    color: white;
+}
+
+
+
+.auto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 2rem;
+    padding: 0.25rem 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+
+.area {
+    background-color: white;
+    text-align: center;
+    min-height: 5rem;
+}
+
+/*Estilo para modificar las caracteristicas de cada área*/
+
+.titulo{
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 1.5rem;
+}
+
+
+.titulo-viviendas {
+    
+    font-size: 20px;
+}
+
+.titulo-datos {
+    font-size: 20px;
+    
+}
+
+.lista {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+.lista p{
+    padding-top: 1rem;
+}
+
+/*TODO: Fix border-bottom 75% width*/
+
+.lista {
+}
+
+.datos {
+}
+
+.elementos-lista {
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+    .elementos-lista:hover {
+        background-color: var(--primary-yellow);
+        color: var(--background);
+        transition: none;
+    }
+
+    .elementos-lista a {
+        padding-top: 1.2rem;
+    }
+
+    .elementos-lista a:visited{
+        color: var(--sidebar);
+    }
+
+    .elementos-lista button {
+        all: unset;
+    }
+
+.auto-grid ul {
+    list-style: none;
+}
+
+.auto-grid li {
+    border-radius: 4.8px;
+    background-color: #F5F5F5;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 2rem;
+}
+
+.auto-lista {
+    --auto-lista-min-size: 16rem;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 1rem;
+    padding: 1rem 2rem;
+    justify-content: center;
+}
+
+body.dark .auto-lista, .body.dark .li .elementos-lista{
+    background-color: var(--sidebar);
+}
+
+body.dark .elementos-lista, body.dark .elementos-lista a {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+
+    .auto-lista li {
+        list-style: none;
+        border-radius: 4px;
+        max-width: 14rem;
+    }
+
+.wrapper {
+    margin: auto auto;
+}
+
+li {
+    text-align: center;
+    font-size: 1.2rem;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+.elementos-lista {
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+    height: 3.75rem;
+    width: 20rem;
+}
+
+
+.button-forms {
+    cursor: pointer;
+    background-color: var(--primary-yellow);
+    height: 2rem;
+    margin: .2rem;
+    padding: .5rem;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    color: var(--background);
+}
+
+    .button-editar-eliminar:hover {
+        background-color: #fabc35;
+    }
+
+
+
+/*Grid dentro de las cards que muestran información acerca de las viviendas*/
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.2fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    text-align: left;
+}
+
+.titulo {
+    grid-area: 1 / 1 / 2 / 3;
+    text-align: center
+}
+
+.datos-fijos {
+    grid-area: 2 / 1 / 3 / 2;
+    
+}
+
+    .datos-fijos p {
+        padding-bottom: .6rem;
+    }
+
+.datos-dinamicos {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+
+.datos-dinamicos input{
+    height: 1.5rem;
+    width: 100%;
+    line-height: 1.5rem;
+    border-radius: 3.8px;
+    padding-bottom: 1rem;
+}
+
+::-webkit-input-placeholder {
+    line-height: normal; 
+    vertical-align: middle; 
+}
+
+    .datos-dinamicos .large-input {
+        height: 5rem;
+        width: 100%;
+        margin-top: .5rem;
+    }
+
+    .datos-dinamicos input:focus {
+        border: solid 1px var(--primary-yellow);
+    }
+
+body.dark .datos-dinamicos input {
+    background-color: var(--dark-background);
+    color: var(--text-dark);
+}
+
+/*Select Menu*/
+select {
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+
+
+/*Switch*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: var(--background);
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: var(--primary-yellow);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--primary-yellow);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+
+/*--------------------------------------------------------Media Queries--------------------------------------------------------*/
+
+/*---Pantallas a partir de 320px de ancho*/
+@media (min-width: 20rem) {
+    .main {
+        height: 100%;
+        gap: 0px;
+    }
+
+    /*Cards - Contenedores de la lista de íconos en el portal residencial*/
+
+    .card {
+        background-color: var(--contrast-one);
+        border-radius: 2.8px;
+        border: none;
+        /*Creacion del grid anidado de las cards*/
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 4rem 1fr;
+        margin-bottom: 2rem;
+    }
+
+
+
+    .titulo {
+        color: var(--sidebar);
+    }
+
+    .datos-fijos, .datos-dinamicos {
+        padding-top: 2rem;
+    }
+}
+
+/*AL ser la pantalla mayor de 550 px, la seccion de datos se divide en dos columnas y tres filas  */
+
+@media only screen and (min-width: 550px) {
+    .auto-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 2rem;
+        padding: 0rem 1rem;
+    }
+}
+
+
+
+
+/*Media query para el menú lateral, al ser menor de 768 pixeles, se limita el tamaño y comportamiento del menu*/
+
+@media (max-width: 768px) {
+    .content {
+        width: 100%;
+        left: 0;
+    }
+
+    .side-navbar {
+        width: 60px;
+        left: -60px;
+    }
+
+    .content.active {
+        width: calc(100% - 60px);
+        left: 60px;
+    }
+
+    .side-navbar.active {
+        left: 0;
+    }
+
+    .header-image {
+        display: none;
+    }
+
+/*TODO: Cambiar imagen en modo oscuro*/
+
+    body.dark .header-image{
+       background-image: url(../images/images/beeOSferaLogoFondosNegrosAltaResolucion.jpg);
+    }
+}
+
+
+@media (min-width: 550px) and (max-width: 950px) {
+    .elementos-lista {
+        max-width: 4rem;
+    }
+}
+
+
+/*Grid para celulares y tablets, al ser menor de 1050px, se mueve el área de datos abajo de la lista */
+
+
+@media only screen and (max-width: 1050px) {
+    .grid-layout {
+        height: auto;
+        display: grid;
+        grid-template-rows: 10% 90% 10% 90%;
+        grid-template-columns: auto;
+    }
+
+    .lista {
+        grid-row: 2 / 3;
+        border-radius: 4.8px;
+    }
+
+    .titulo-datos {
+        padding-top: 1.4rem
+    }
+
+
+   
+}
+
+
+/*Boton centrado*/
+@media (min-width: 550px){
+    .li-buttons {
+        grid-column: span 2;
+        margin: auto;
+        width: 50%;
+    }
+}
+
+
+/*---Pantallas tamaños superiores a 1200px de ancho*/
+@media (min-width: 75rem) {
+    .main {
+        gap: 2rem;
+    }
+
+    .link-buttons {
+        /*Creación del grid de links*/
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

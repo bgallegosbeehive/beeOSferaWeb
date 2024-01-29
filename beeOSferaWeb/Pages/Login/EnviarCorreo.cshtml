@@ -1,0 +1,67 @@
+﻿@page "/Login/EnviarCorreo"
+@model beeOSferaWeb.Pages.Login.EnviarCorreoModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Enviar Correo </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/beeOSferaWeb.styles.css" asp-append-version="true" />
+    @*https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css*@
+</head>
+
+<body class="">
+    <section class="vh-100 " id="slide_bg">
+
+        <div class="container  h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+
+                    @* Card *@
+
+                    <div class="card bg-transparent border-0">
+                        <div class="card-body p-5 text-center">
+
+                            @* Formulario *@
+
+                            <form method="post" class="login-form mt-5 needs-validation" name="f1">
+
+                                <div class="text-center fc-white pb-4">
+                                    <h1>
+                                        Enviar Correo
+                                    </h1>
+                                </div>
+
+                                <div class="mb-4">
+                                    <input placeholder="Ingrese su correo" name="correo" id="correo" required="" class="border-yellow-primary form-control rounded transparent-input input-focus text-white" />
+                                </div>
+
+                                <button class="btn yellow-variant-2 fc-white btn-block fa-lg mb-3 rounded w-50" type="submit">
+                                    Enviar
+                                </button>
+
+                                @if (TempData["Mensaje"] != null)
+                                {
+                                    <div class="alert alert-dismissible fade show text-warning bg-opacity-0 text-center align-items-center" role="alert">
+                                        <strong class="text-warning">*</strong> Correo Inválido.
+                                    </div>
+                                }
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-xs text-white text-opacity-50 position-relative mt-n4"> LLegará un enlace para restablecer su clave al <span class="text-white fw-bold">correo</span> que <span class="text-warning fw-bold"> ingrese.</span> </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

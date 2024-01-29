@@ -1,0 +1,132 @@
+﻿@page "/Portal/Residencial/AgregarResidencial"
+
+@model beeOSferaWeb.Pages.Portal.AgregarResidencialModel
+@{
+    Layout = "_Layout";
+}
+
+
+
+<div class="">
+
+        <div class="area datos">
+            <div class="wrapper">
+                <ul class="auto-grid">
+                    <li>
+                        <div class="grid-cards">
+                            <div class="titulo">
+                                <span class="material-symbols-rounded span-icon-titles">other_houses</span>Tipo
+                            </div>
+                            <div class="datos-fijos">
+                                <p>Tipo:</p>
+                            </div>
+                            <div class="datos-dinamicos">
+                                @* TODO: Dropdown *@
+                                <select name="tipo" id="tipo">
+                                    <option value="vivienda 1">Vivienda 1</option>
+                                    <option value="vivienda 2">Vivienda 2</option>
+                                    <option value="vivienda 3">Vivienda 3</option>
+                                    <option value="vivienda 4">Vivienda 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="grid-cards">
+                            <div class="titulo">
+                                <span class="material-symbols-rounded span-icon-titles">home_pin</span>Ubicación
+                            </div>
+                            <div class="datos-fijos">
+                                <p>Calle:</p>
+                                <p>Condominio:</p>
+                                <p>Num Ext:</p>
+                                <p>Int:</p>
+                                <p>Superficie:</p>
+                                <p>Zona:</p>
+                               
+                            </div>
+                            <div class="datos-dinamicos">
+                                <input placeholder="Dato a enviar"></input>
+                                <select name="condominio" id="condominio">
+                                    <option value=" condomino1">Condominio 1</option>
+                                    <option value=" condomino1">Condominio 2</option>
+                                    <option value=" condomino1">Condominio 3</option>
+                                    <option value=" condomino1">Condominio 4</option>
+                                </select>
+                                <input placeholder="Dato a enviar"></input>
+                                <input placeholder="Dato a enviar"></input>
+                                <input placeholder="Dato a enviar"></input>
+                                <select name="zona" id="zona">
+                                    <option value="zona 1">Zona 1</option>
+                                    <option value="zona 2">Zona 2</option>
+                                    <option value="zona 3">Zona 3</option>
+                                    <option value="zona 4">Zona 4</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="grid-cards">
+                            <div class="titulo">
+                                <span class="material-symbols-rounded span-icon-titles">boy</span>Identidad
+                            </div>
+                            <div class="datos-fijos">
+                                <p>Identificador:</p>
+                                <p>Descripción:</p>
+                            </div>
+                            <div class="datos-dinamicos">
+                                <input placeholder="Dato a enviar"></input>
+                                <input class="large-input" placeholder="Aqui va un textbox"></input>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="grid-cards">
+                            <div class="titulo">
+                                <span class="material-symbols-rounded span-icon-titles">attach_money</span>Datos Financieros
+                            </div>
+                            <div class="datos-fijos">
+                                <p>Referencia de pago:</p>
+                            </div>
+                            <div class="datos-dinamicos">
+                                <input placeholder="Dato a enviar"></input>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="grid-cards">
+                            <div class="titulo">
+                                <span class="material-symbols-rounded span-icon-titles">nest_doorbell_visitor</span>Configuración para visitantes
+                            </div>
+                            <div class="datos-fijos">
+                                <p>Aceptar visitas:</p>
+                                <p>Solicitar autorización para ingreso:</p>
+                            </div>
+                            <div class="datos-dinamicos">
+                                @* TODO: Switch *@
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label> <br /> <br />  
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="li-buttons">
+                        <form method="post" class="login-form mt-5">
+                            <button class="button-forms" type="submit">Agregar Propiedad</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>
